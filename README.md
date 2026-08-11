@@ -19,38 +19,46 @@
 ## 📦 安裝與準備工作
 
 1. 複製專案
-  
+   ```
    git clone https://github.com
    cd your-repo-name
+   ```
    
 2. 安裝依賴套件
-  
+   ```
    npm install
    # 或者使用 yarn / pnpm
    # yarn install
    # pnpm install
+   ```
    
 3. 安裝核心音樂庫
-  
+   ```
    npm install vexflow tone
+   ```
    
 ## 🚀 核心架構與資料結構
 
 本專案的核心邏輯在於**使用單一結構化資料（JSON）同時驅動視覺與聽覺**：
+```
 interface NoteData {
   key: string;      // VexFlow 格式 (例如: "c/4" 代表中央 C)
   toneKey: string;  // Tone.js 格式 (例如: "C4")
   duration: string; // VexFlow 拍子記號 (q = 四分音符, h = 二分音符)
   toneTime: string; // Tone.js 拍子記號 (4n = 四分音符, 2n = 二分音符)
 }
+```
 
 ## 💻 快速開始 (Quick Start)
 
 ### 1. HTML 結構 (`index.html`)
+```
 <div id="score-container"></div>
 <button id="play-btn">▶️ 播放樂譜</button>
+```
 
 ### 2. TypeScript 主邏輯 (`src/main.ts`)
+```
 import { Renderer, Stave, StaveNote, Voice, Formatter } from 'vexflow';
 import * as Tone from 'tone';
 
@@ -97,6 +105,7 @@ document.addEventListener("DOMContentLoaded", () => {
   renderScore("score-container", myScore);
   document.getElementById("play-btn")?.addEventListener("click", () => playScore(myScore));
 });
+```
 
 ## 🗺 擴充計畫 (Roadmap)
 
